@@ -7,6 +7,8 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
+require("dotenv").config();
+
 var app = express();
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
