@@ -1,0 +1,11 @@
+.sidebar 
+  div(class='sidebar')
+    h2= sidebardata.title
+    div(class='courses')
+      each course in sidebardata.courses
+        div(class='sidebar-course')
+          a(href=course.url) #{course.department} #{course.code} - #{course.name} 
+      else 
+        div There are no courses
+    a.add-course-btn(href="/course/create") Add course
+    button(class='add-course-btn' onclick="location.href='/homework/create'") New Homework

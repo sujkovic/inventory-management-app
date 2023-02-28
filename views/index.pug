@@ -2,4 +2,9 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to #[em Adrian's Homework Manager], a simple website I made to learn backend web development 
+
+  if error 
+    p Error getting content 
+  else 
+    p Please choose a class on the left to view assignments

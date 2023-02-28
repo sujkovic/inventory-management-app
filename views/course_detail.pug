@@ -1,0 +1,13 @@
+extends layout 
+
+block content 
+    h1.course-view-title= title 
+
+    each homework in homeworks
+        .homework 
+            .homework-top
+                .homework-name #{homework.name}
+                .homework-due #{homework.due_formatted}
+            .homework-description #{homework.description}
+    else 
+        div No homework yet!

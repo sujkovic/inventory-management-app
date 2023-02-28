@@ -1,0 +1,24 @@
+extends layout 
+
+block content 
+    h1.course-form-title Add a new course 
+
+    form.course-form(method='POST' action='')
+        .form-group 
+            label(for='name') Course Title
+            input.name(type='text', placeholder='Data Structures and Algorithms' name='name' required='true')
+        .form-group 
+            label(for='department') Department
+            input.department(type='text' placeholder='CS' name='department' required='true')
+        .form-group 
+            label(for='code') Course ID
+            input.number(type='number' name='code' required=true)
+        .form-group 
+            label(for='description') Description
+            input.description(type='text' name='description')
+
+        button.submit-btn(type='submit') Create 
+    if errors 
+        ul 
+            for error in errors 
+                li!= error.msg

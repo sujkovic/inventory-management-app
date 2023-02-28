@@ -1,0 +1,31 @@
+extends layout 
+
+block content 
+    h1.course-form-title= title
+
+    form.course-form(method='POST' action='')
+        .form-group 
+            label(for='name') Homework title
+            input.name(type='text' name='name' required='true' value=(undefined===homework ? '' : homework.name))
+        .form-group 
+            label(for='description') Description
+            input.description(type='text' name='description' required='true' value=(undefined===homework ? '' : homework.name))
+        .form-group
+            label(for='course') Course:
+            select.form-control(type='select' name='course' required='true' )
+                - courses.sort(function(a, b) {let A = a.code; let B = b.code; return (A < B) ? -1 : (A > B) ? 1 : 0;});
+                for course in courses
+                    if homework
+                        option(value=course._id selected=(course._id.toString()===homework.course._id.toString() ? 'selected' : false )) #{course.department} #{course.code} - #{course.name}
+                    else 
+                        option(value=course._id) #{course.department} #{course.code} - #{course.name}
+        div.form-group
+            label(for='due') Due date:
+            input.form-control(type='date' name='due' value=(undefined===homework ? '' : homework.due))
+
+
+        button.submit-btn(type='submit') Create 
+    if errors 
+        ul 
+            for error in errors 
+                li!= error.msg
