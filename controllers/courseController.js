@@ -95,11 +95,33 @@ exports.course_create_post = [
 ];
 
 exports.course_delete_get = function (req, res, next) {
-  res.send("course delete get");
+  async.parallel(
+    {
+      course(callback) {
+        Course.findById(req.params.id).exec(callback);
+      },
+    },
+    (err, results) => {
+      if (err) {
+        return next(err);
+      }
+      res.render("course_delete", {
+        title: "Delete course",
+        course: results.course,
+      });
+    }
+  );
 };
 
 exports.course_delete_post = function (req, res, next) {
-  res.send("course delete post");
+  console.log(req.body.courseid);
+  Course.findByIdAndRemove(req.body.courseid, (err) => {
+    if (err) {
+      return next(err);
+    }
+    //  W
+    res.redirect("/");
+  });
 };
 
 exports.course_update_get = function (req, res, next) {

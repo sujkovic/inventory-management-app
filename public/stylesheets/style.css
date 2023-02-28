@@ -39,7 +39,7 @@ body {
   left: 25vw;
 }
 
-.add-course-btn {
+.add-btn {
   height: 32px;
   width: 120px;
 }
@@ -82,13 +82,11 @@ a {
 
 .homework-top {
   display: flex;
-  justify-content: space-between;
-}
-
-.homework-due-hidden::before {
-  flex: 1;
-  visibility: hidden;
-  margin-right: auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
 }
 
 .homework-name {
@@ -96,6 +94,41 @@ a {
 }
 
 .homework-due {
-  margin-left: auto;
-  flex: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.add-btn:first-child {
+  margin-right: 16px;
+}
+
+.no-hw {
+  text-align: center;
+}
+
+.course-delete {
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 16px;
+  padding: 12px 0;
+}
+
+.delete-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.bruhhh {
+  padding-left: 180px;
+}
+
+.bruhhhhh {
+  width: 120px;
+  position: absolute;
+  bottom: 8px;
+  right: 46%;
+  background-color: white;
 }

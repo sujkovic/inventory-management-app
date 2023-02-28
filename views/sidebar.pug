@@ -7,5 +7,6 @@
           a(href=course.url) #{course.department} #{course.code} - #{course.name} 
       else 
         div There are no courses
-    a.add-course-btn(href="/course/create") Add course
-    button(class='add-course-btn' onclick="location.href='/homework/create'") New Homework
+    .buttons
+      button.add-btn(onclick="location.href='/course/create'") New course
+      button.add-btn(onclick="location.href='/homework/create'") New Homework

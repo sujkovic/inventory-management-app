@@ -70,8 +70,6 @@ exports.homework_create_post = [
       if (err) {
         return next(err);
       }
-      console.log(req.body.course);
-      console.log(req.body.name);
       res.redirect(`../course/${req.body.course}`);
     });
   },

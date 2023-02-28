@@ -10,4 +10,8 @@ block content
                 .homework-due #{homework.due_formatted}
             .homework-description #{homework.description}
     else 
-        div No homework yet!
+        h2.no-hw No homework yet!
+        
+    .bruhhhhh
+        a(href=`/course/${course._id}/delete`) 
+            .course-delete Delete course
